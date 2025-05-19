@@ -9,31 +9,39 @@ export default function Saas() {
 
   return (
     <section className="bg-black text-white px-6 py-16 md:p-[120px]">
-      <div className="flex flex-col md:flex-row md:items-center  md:justify-between mb-16 gap-6 md:gap-4">
-        <div className='md:w-[35%]'>
-          <h2 className="text-3xl leading-9 tracking-[-0.62px] md:text-4xl font-semibold md:leading-11 max-w-xl md:tracking-normal">{heading}</h2>
+      <div className="flex flex-col lg:flex-row lg:items-center  lg:justify-between mb-16 gap-6 lg:gap-4">
+        <div className='lg:w-[35%]'>
+          <h2 className="text-3xl leading-9 tracking-[-0.62px] md:text-4xl font-semibold md:leading-11 max-w-xl md:tracking-normal">{heading.split('|').map((line, index) => (
+                    <div key={index}>{line}</div>
+                  ))}</h2>
         </div>
-        <p className="px-9 text-gray-400 mt-2 max-w-3xl font-normal leading-[22px] md:leading-7 text-[14px] md:text-[16px] md:w-[50%]">{subheading}</p>
+        <p className="lg:px-9 text-gray-400 mt-2 max-w-3xl font-normal leading-[22px] md:leading-7 text-[14px] md:text-[16px] lg:w-[50%]">{subheading.split('|').map((line, index) => (
+                    <div key={index}>{line}</div>
+                  ))}</p>
         <a
           href={cta.link}
-          className="md:w-[15%] w-[50%] bg-[#FF9900] flex justify-center items-center gap-3 transition text-black font-medium px-5 py-3 rounded shadow text-sm"
+          className="lg:w-[15%] w-[50%] bg-[#FF9900] flex justify-center items-center gap-3 transition text-black font-medium px-5 py-3 rounded shadow text-sm"
         >
           {cta.text} <span><FaArrowRightLong size={15} /></span>
         </a>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto ">
+      <div className="grid lg:grid-cols-3 gap-6 max-w-7xl mx-auto ">
         {pillars.map((pillar, idx) => (
-          <div key={idx} className="flex flex-col items-start text-left hover:bg-[#0f172a8a] rounded-md p-5 ">
+          <div key={idx} className="flex flex-col items-start text-left rounded-md p-5 ">
             <Image width={24} height={32}
               src={pillar.icon}
               alt={pillar.title}
               className="w-7 h-7 mb-3"
             />
-            <h3 className={`font-semibold text-[16px] leading-[26px] mb-2 ${pillar.color}`}>
-              {pillar.title}
+            <h3 className={`font-semibold text-[16px] lg:text-xl leading-[26px] mb-2 ${pillar.color}`}>
+              {pillar.title.split('|').map((line, index) => (
+                    <div key={index}>{line}</div>
+                  ))}
             </h3>
-            <p className="text-gray-400  text-[13px] leading-5">{pillar.description}</p>
+            <p className="text-gray-400  text-[13px] leading-5">{pillar.description.split('|').map((line, index) => (
+                    <div key={index}>{line}</div>
+                  ))}</p>
           </div>
         ))}
       </div>

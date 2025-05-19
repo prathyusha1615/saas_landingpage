@@ -41,12 +41,16 @@ export default function Founders() {
   }, [current, testimonials.length])
 
   return (
-    <section className="bg-[#0D1321] text-white py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
+    <section className="bg-[#000000] text-white py-10 px-10 lg:px-0  md:pl-12 lg:pl-[120px] overflow-hidden">
+      <div className=" flex flex-col lg:flex-row items-start justify-between ">
         {/* Left Column */}
-        <div className="md:w-1/3 shrink-0">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">{heading}</h2>
-          <p className="text-sm text-gray-400">{subheading}</p>
+        <div className="lg:w-1/3 shrink-0 mb-10 lg:mb-0">
+          <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-3">{heading.split('|').map((line, index) => (
+                    <div key={index}>{line}</div>
+                  ))}</h2>
+          <p className="text-sm md:text-16px lg:text-[16px] text-gray-400">{subheading.split('|').map((line, index) => (
+                    <div key={index}>{line}</div>
+                  ))}</p>
         </div>
 
         {/* Right Column - Slider */}
@@ -59,7 +63,7 @@ export default function Founders() {
           {slides.map((t, index) => (
               <div
                 key={index}
-                className={`w-[50%] md:w-[60%] shrink-0 snap-start transition-opacity duration-700 ${
+                className={`w-[70%] lg:w-[70%] shrink-0 snap-start transition-opacity duration-700 ${
                   index % testimonials.length === current % testimonials.length
                     ? 'opacity-100'
                     : index % testimonials.length === (current + 1) % testimonials.length
@@ -69,7 +73,7 @@ export default function Founders() {
               >
 
             <div className="rounded-[10px] p-[1px] bg-gradient-to-r from-[#31220d] via-[#5a3a06] to-[#FF9900]">
-              <div className="bg-[#111827] rounded-[10px] p-4 md:p-8 h-full flex flex-col justify-between text-white">
+              <div className="bg-[#020712] rounded-[10px] p-4 md:p-8 h-full flex flex-col justify-between text-white">
                 <p className="text-sm md:text-[13px] text-[#94A3B8] italic mb-6">“{t.message}”</p>
                 <div className="flex flex-row items-center justify-between ">
                   <div className="flex items-center justify-center ">

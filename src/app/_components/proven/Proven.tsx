@@ -7,13 +7,13 @@ export default function Proven() {
   const { heading, subheading, case: caseStudy } = useProven()
 
   return (
-    <section className="bg-[#000000] text-white px-4 py-16 md:px-12 lg:px-20">
+    <section className="bg-[#000000] text-white px-4 py-16 md:px-24 lg:px-20">
       <div className="text-center max-w-4xl mx-auto mb-16">
-        <h2 className="text-3xl md:text-5xl font-semibold leading-10 pb-3 tracking-[-0.62px]">{heading}</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl  font-semibold leading-10 pb-3 tracking-[-0.62px]">{heading}</h2>
         <p className="text-[#94A3B8] mt-2 text-[13px] leading-5 font-normal">{subheading}</p>
       </div>
 
-      <div className="bg-[#0f172a95] rounded-xl md:p-9 p-6 grid md:grid-cols-3 gap-8 text-white max-w-7xl mx-auto">
+      <div className="bg-[#0f172a95] rounded-xl md:p-9 p-6 grid lg:grid-cols-3 gap-8 text-white max-w-7xl mx-auto">
         {/* Left Column */}
         <div>
           <h3 className="text-3xl leading-10 tracking-[-0.62px] font-semibold mb-5">{caseStudy.title}</h3>
@@ -33,7 +33,7 @@ export default function Proven() {
             {caseStudy.solutions.map((item, idx) => (
               <li
                 key={idx}
-                className="transition-all p-2 text-[13px] font-normal leading-5 text-[#94A3B8] duration-200 ease-in-out border-l-2 border-transparent pl-3 hover:border-[#FF9900] hover:bg-[#FF990010] "
+                className="transition-all p-1.5 text-[13px] font-normal leading-5 text-[#94A3B8] duration-200 ease-in-out border-l-2 border-transparent pl-3 hover:border-[#FF9900] hover:bg-gradient-to-r from-[#FF9900]/10 to-[#0f172a95] "
               >
                 {item}
               </li>

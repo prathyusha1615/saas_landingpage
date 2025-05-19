@@ -10,7 +10,7 @@ export default function LetsWork() {
     <div className='flex justify-center items-center w-full px-4 sm:px-6 md:px-0 py-12'>
 
       {/* DESKTOP version */}
-      <div className="hidden md:flex relative w-[1200px] flex-col items-center gap-9 p-[80px_120px] rounded-[20px] bg-[rgba(15,23,42,0.4)] backdrop-blur-md overflow-hidden">
+      <div className="hidden md:hidden lg:block md:flex relative w-[1200px] flex-col items-center gap-9 p-[80px_120px] rounded-[20px] bg-[rgba(15,23,42,0.4)] backdrop-blur-md overflow-hidden">
 
         {/* ORANGE GLOW (top-right) */}
         <div className="absolute top-[-150px] right-[-100px] w-[355px] h-[355px] bg-[#FF9900] rounded-full opacity-30 blur-[315px] pointer-events-none z-0" />
@@ -36,7 +36,7 @@ export default function LetsWork() {
       </div>
 
       {/* MOBILE version */}
-      <div className="block md:hidden relative w-full max-w-[1200px] flex flex-col items-center gap-6 px-6 sm:px-10 md:px-20 py-16 rounded-[20px] bg-[rgba(15,23,42,0.4)] backdrop-blur-md text-center overflow-hidden">
+      <div className="block lg:hidden relative w-full max-w-[1200px] flex flex-col items-center gap-6 px-6 sm:px-10 md:px-20 py-16 rounded-[20px] bg-[rgba(15,23,42,0.4)] backdrop-blur-md text-center overflow-hidden">
 
         {/* ORANGE GLOW (top-right) */}
         <div className="absolute top-[-150px] right-[-100px] w-[355px] h-[355px] bg-[#FF9900] rounded-full opacity-30 blur-[315px] pointer-events-none z-0" />

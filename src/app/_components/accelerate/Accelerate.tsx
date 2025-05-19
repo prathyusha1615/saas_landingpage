@@ -49,10 +49,10 @@ const payload = {
 
 
   return (
-    <section className="bg-black text-white flex flex-col justify-center items-center lg:flex-row p-6 md:p-[120px]">
+<section className="bg-black text-white flex flex-col lg:flex-row justify-center items-center p-6 md:p-[120px]">
       {/* Left Side */}
-      <div className="w-full lg:w-[60%] mb-12 lg:mb-0 lg:pr-36">
-        <h1 className="text-[32px] md:text-5xl font-semibold font-jakarta leading-12 md:leading-16 mb-6 relative flex flex-wrap">
+      <div className="w-full lg:w-[60%] mb-12 lg:mb-0 lg:pr-[40px] ">
+        <h1 className="text-[32px] md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-semibold font-jakarta leading-12 md:leading-16 xl:leading-20 mb-6 relative flex flex-wrap">
           {heading.split(' ').map((word, idx) => {
             if (word === 'Revenue') {
               return (
@@ -61,7 +61,7 @@ const payload = {
                   <Image
                     src={line}
                     alt="underline"
-                    className="absolute left-0 bottom-0  object-contain z-0"
+                    className="absolute left-0 -bottom-1 w-full  object-contain z-0"
                   />
                 </span>
               )
@@ -116,10 +116,10 @@ const payload = {
       {/* Right Side Form */}
       <div className="hidden md:block relative  w-full lg:w-[40%]  flex-1 p-8 rounded-xl shadow-lg text-white overflow-hidden bg-[#0F172A66] backdrop-blur-md">
         {/* ORANGE GLOW (top-right) */}
-        <div className="absolute top-[-150px] right-[-150px] w-[555px] h-[555px] bg-[#FF9900] rounded-full opacity-25 blur-[315px] pointer-events-none z-0" />
+        <div className="absolute top-[-150px] right-[-150px] w-[455px] h-[250px] bg-[#FF9900] rounded-full opacity-25 blur-[200px] pointer-events-none z-0" />
 
         {/* BLUE GLOW (bottom-left) */}
-        <div className="absolute bottom-[-150px] left-[-150px] w-[555px] h-[555px] bg-[#2F52A4] rounded-full opacity-25 blur-[315px] pointer-events-none z-0" />
+        <div className="absolute bottom-[-150px] left-[-150px] w-[555px] h-[555px] bg-[#044cf6] rounded-full opacity-25 blur-[315px] pointer-events-none z-0" />
 
         {/* CONTENT */}
         <div className="relative z-10 ">
@@ -138,7 +138,7 @@ const payload = {
                   <input
                     required={field.required}
                     placeholder={field.placeholder}
-                    className="w-full p-3 rounded-md bg-[#FFFFFF0F] text-[12px] font-normal leading-[22px] text-white border border-[#94A3B880] placeholder:text-[#94A3B880]"
+                    className="w-full p-3 rounded-md bg-[#FFFFFF0F] text-[12px] font-normal leading-[22px] text-white  placeholder:text-[#94A3B880]"
                     onChange={(e) => setFormData({ ...formData, [field.label]: e.target.value })}
                   />
                 </div>
@@ -155,7 +155,7 @@ const payload = {
                 <input
                   required={field.required}
                   placeholder={field.placeholder}
-                  className="w-full p-3 rounded-md bg-[#FFFFFF0F] text-[12px] font-normal leading-[22px] text-white border border-[#94A3B880] placeholder:text-[#94A3B880]"
+                  className="w-full p-3 rounded-md bg-[#FFFFFF0F] text-[12px] font-normal leading-[22px] text-white  placeholder:text-[#94A3B880]"
                   onChange={(e) => setFormData({ ...formData, [field.label]: e.target.value })}
                 />
               </div>

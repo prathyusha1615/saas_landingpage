@@ -8,7 +8,7 @@ export default function Performance() {
   return (
     <section className="bg-black text-white px-4 md:px-12 lg:px-20">
       <div className="max-w-5xl mx-auto text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-semibold">{title}</h2>
+        <h2 className="text-3xl 3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-semibold">{title}</h2>
         <p className="text-[#94A3B8] md:text-[#FFFFFFCC] md:text-[16px] md:leading-7 text-[14px] leading-[22px] font-normal mt-2">{subtitle}</p>
       </div>
 

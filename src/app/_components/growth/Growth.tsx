@@ -13,10 +13,10 @@ export default function Growth() {
       <div className="flex-1 flex flex-col w-[50%] ">
         {/* Sticky Title + Subheading */}
         <div className="sticky top-0 z-10 bg-[#02050E] py-28">
-          <h2 className="text-white text-4xl font-bold leading-snug mb-4">
-            The Growth Execution Framework
+          <h2 className="text-white text-4xl md:text-5xl lg:text-6xl  font-bold leading-snug mb-4">
+            The Growth Execution <br /> Framework
           </h2>
-          <p className="text-gray-300 text-base">
+          <p className="text-[#94A3B8] text-base">
             A clear, structured process focused on what drives results.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function Growth() {
       </div>
 
       {/* RIGHT COLUMN: Sticky Image */}
-      <div className="w-[45%] h-fit sticky top-24 hidden md:block">
+      <div className="w-[45%] h-fit sticky top-24 hidden lg:block">
         <Image
           src={growthImg}
           alt="Growth Visual"

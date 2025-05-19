@@ -2,7 +2,7 @@
 
 const useAccelerate = () => {
   return {
-    heading: "Accelerate Your SaaS \nRevenue with Expert Performance Marketing",
+    heading: "Accelerate Your SaaS Revenue with Expert Performance Marketing",
     description:
       "From targeted paid acquisition to high-impact organic strategies, I help SaaS brands turn marketing spend into predictable pipeline and revenue, trusted globally by SaaS leaders.",
     bullets: [
@@ -24,7 +24,7 @@ const useAccelerate = () => {
       { label: "Services", placeholder: "e.g. Paid Marketing, SEO, Conversion Rate Optimisation", required: true },
       { label: "What’s blocking growth right now?", placeholder: "e.g. “Low demo bookings, drop-off after signup, unclear value prop”", required: false },
     ],
-    cta: "Get My Free Audit",
+    cta: "Submit",
   }
 }
 

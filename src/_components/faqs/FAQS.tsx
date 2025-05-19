@@ -18,7 +18,7 @@ export default function FAQS({ faqs }: FAQProps) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-16 ">
-      <h2 className="text-white text-3xl font-semibold text-center mb-10">
+      <h2 className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-semibold text-center mb-10">
         Frequently Asked Questions
       </h2>
 

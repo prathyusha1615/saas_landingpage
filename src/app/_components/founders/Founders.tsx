@@ -41,7 +41,7 @@ export default function Founders() {
   }, [current, testimonials.length])
 
   return (
-    <section className="bg-[#000000] text-white py-10 px-10 lg:px-0  md:pl-12 lg:pl-[120px] overflow-hidden">
+    <section className="bg-[#000000] text-white py-10 px-10 lg:px-0  lg:py-[120px] md:pl-12 lg:pl-[120px] overflow-hidden">
       <div className=" flex flex-col lg:flex-row items-start justify-between ">
         {/* Left Column */}
         <div className="lg:w-1/3 shrink-0 mb-10 lg:mb-0">
@@ -61,45 +61,44 @@ export default function Founders() {
             style={{ scrollSnapType: 'x mandatory' }}
           >
           {slides.map((t, index) => (
-              <div
-                key={index}
-                className={`w-[70%] lg:w-[70%] shrink-0 snap-start transition-opacity duration-700 ${
-                  index % testimonials.length === current % testimonials.length
-                    ? 'opacity-100'
-                    : index % testimonials.length === (current + 1) % testimonials.length
-                    ? 'opacity-40 md:opacity-40'
-                    : 'opacity-0 md:opacity-0'
-                }`}
-              >
-
-            <div className="rounded-[10px] p-[1px] bg-gradient-to-r from-[#31220d] via-[#5a3a06] to-[#FF9900]">
-              <div className="bg-[#020712] rounded-[10px] p-4 md:p-8 h-full flex flex-col justify-between text-white">
-                <p className="text-sm md:text-[13px] text-[#94A3B8] italic mb-6">“{t.message}”</p>
-                <div className="flex flex-row items-center justify-between ">
-                  <div className="flex items-center justify-center ">
-                    <Image
-                      src={t.authorAvatar}
-                      alt={t.authorName}
-                      width={100} height={100}
-                      className='justify-center items-center flex'
-                    />
-                    <div>
-                      <p className="md:text-sm text-[10px] font-semibold text-[#FDBA74]">{t.authorName}</p>
-                      <p className="md:text-xs text-[8px] text-gray-400">{t.authorRole}</p>
+            <div
+              key={index}
+              className={`w-[70%] lg:w-[70%] shrink-0 snap-start transition-opacity duration-700 ${
+                index % testimonials.length === current % testimonials.length
+                  ? 'opacity-100'
+                  : index % testimonials.length === (current + 1) % testimonials.length
+                  ? 'opacity-40 md:opacity-40'
+                  : 'opacity-0 md:opacity-0'
+              }`}
+            >
+              {/* Card with fixed height */}
+              <div className="rounded-[10px] p-[1px] bg-gradient-to-r from-[#31220d] via-[#5a3a06] to-[#FF9900] h-full min-h-[240px] flex flex-col">
+                <div className="bg-[#020712] rounded-[10px] p-4 md:p-8 flex flex-col justify-between text-white h-full">
+                  <p className="text-sm md:text-[13px] text-[#94A3B8] italic mb-6">“{t.message}”</p>
+                  <div className="flex flex-row items-center justify-between mt-auto">
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src={t.authorAvatar}
+                        alt={t.authorName}
+                        width={40}
+                        height={40}
+                        className="rounded-full"
+                      />
+                      <div>
+                        <p className="md:text-sm text-[10px] font-semibold text-[#FDBA74]">{t.authorName}</p>
+                        <p className="md:text-xs text-[8px] text-gray-400">{t.authorRole}</p>
+                      </div>
                     </div>
+                    <Image
+                      src={t.companyLogo}
+                      alt="company"
+                      width={80}
+                      height={24}
+                      className="object-contain"
+                    />
                   </div>
-                  <Image
-                    src={t.companyLogo}
-                    alt="company"
-                    width={80}
-                    height={24}
-                    className="object-contain"
-                  />
                 </div>
               </div>
-
-            </div>
-
             </div>
           ))}
         </div>

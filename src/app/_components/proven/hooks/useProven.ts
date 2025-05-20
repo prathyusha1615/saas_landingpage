@@ -20,7 +20,7 @@ const useProven = () => {
       impacts: [
         { stat: '302%', label: 'Increase in Leads' },
         { stat: '188%', label: 'Increase in Sales' },
-        { stat: '75%', label: 'sign-up rate' },
+        { stat: '75%', label: 'Decrease in Cost Per Lead' },
         { stat: '380%', label: 'Increase in Meetings Booked' },
       ],
     },

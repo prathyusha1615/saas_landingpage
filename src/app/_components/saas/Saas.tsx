@@ -9,7 +9,7 @@ export default function Saas() {
 
   return (
     <section className="bg-black text-white px-6 py-16 md:p-[120px]">
-      <div className="flex flex-col lg:flex-row lg:items-center  lg:justify-between mb-16 gap-6 lg:gap-4">
+      <div className="flex flex-col lg:flex-row lg:items-center  lg:justify-between mb-16 gap-6 lg:gap-0">
         <div className='lg:w-[35%]'>
           <h2 className="text-3xl leading-9 tracking-[-0.62px] md:text-4xl font-semibold md:leading-11 max-w-xl md:tracking-normal">{heading.split('|').map((line, index) => (
                     <div key={index}>{line}</div>

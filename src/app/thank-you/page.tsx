@@ -29,7 +29,8 @@ export default function BookDemo() {
   }, [router])
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-black p-4">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-black p-4">
+      <h1 className='text-white text-4xl lg:text-6xl font-semibold text-center pt-20 pb-10 leading-16'>Thank You! Your Next Step: <br />Book a Call With Us</h1>
       <div
         className="calendly-inline-widget"
         data-url="https://calendly.com/shitanshu-digital/saas-discovery-call"

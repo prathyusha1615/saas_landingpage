@@ -7,6 +7,8 @@ import line from '../../../../public/assets/Svg/line.svg'
 import { FaArrowRightLong } from "react-icons/fa6";
 import CustomDropdown from '@/_components/CustomDropdown'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+
 export default function Accelerate() {
   const {
     heading,
@@ -18,6 +20,7 @@ export default function Accelerate() {
     formFields,
     cta,
   } = useAccelerate()
+const router = useRouter()
 
   const [formData, setFormData] = useState<Record<string, string>>({})
 const handleSubmit = async (e: React.FormEvent) => {
@@ -41,7 +44,7 @@ const payload = {
     })
 
     const data = await res.json()
-    alert('✅ Form submitted to HubSpot successfully!')
+    router.push('/thank-you') 
     console.log(data)
   } catch (err) {
     alert('❌ Submission failed. Try again.')
@@ -162,12 +165,23 @@ const payload = {
                     onChange={(val) => setFormData({ ...formData, [field.label]: val })}
                   />
                 ) : (
-                  <input
-                    required={field.required}
-                    placeholder={field.placeholder}
-                    className="w-full p-3 rounded-md bg-[#FFFFFF0F] text-[12px] font-normal leading-[22px] text-white focus:ring-0 focus:outline-none placeholder:text-[#94A3B880]"
-                    onChange={(e) => setFormData({ ...formData, [field.label]: e.target.value })}
-                  />
+                  <>
+                  {field.label === 'What’s blocking growth right now?' ? (
+                      <textarea
+                        rows={4}
+                        placeholder={field.placeholder}
+                        className="w-full p-3 rounded-md bg-[#FFFFFF0F] text-[12px] font-normal leading-[22px] text-white focus:ring-0 focus:outline-none placeholder:text-[#94A3B880] resize-none"
+                        onChange={(e) => setFormData({ ...formData, [field.label]: e.target.value })}
+                      />
+                    ) : (
+                      <input
+                        required={field.required}
+                        placeholder={field.placeholder}
+                        className="w-full p-3 rounded-md bg-[#FFFFFF0F] text-[12px] font-normal leading-[22px] text-white focus:ring-0 focus:outline-none placeholder:text-[#94A3B880]"
+                        onChange={(e) => setFormData({ ...formData, [field.label]: e.target.value })}
+                      />
+                    )}
+                  </>
                 )}
               </div>
             ))}

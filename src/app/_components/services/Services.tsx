@@ -2,8 +2,9 @@
 
 import useServices from './hooks/useServices'
 import Image from 'next/image'
-export default function Services() {
-  const { heading, services } = useServices()
+export default function Services({ slug }: { slug?: string }) {
+  
+  const { heading, services } = useServices(slug)
 
   return (
     <section className="bg-black text-white px-6 py-16 md:p-[120px]">

@@ -1,8 +1,11 @@
 // hooks/useAccelerate.ts
 
-const useAccelerate = () => {
+const useAccelerate = (slug?: string) => {
+  const isSaasPage = slug === 'saas-digital-marketing';
   return {
-    heading: "Accelerate Your SaaS Revenue with Expert Performance Marketing",
+    heading: isSaasPage
+      ? "Accelerate Your SaaS Revenue with Expert Digital Marketing"
+      : "Accelerate Your SaaS Revenue with Expert Performance Marketing",
     description:
       "From targeted paid acquisition to high-impact organic strategies, I help SaaS brands turn marketing spend into predictable pipeline and revenue, trusted globally by SaaS leaders.",
     bullets: [

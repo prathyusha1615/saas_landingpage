@@ -9,7 +9,7 @@ import CustomDropdown from '@/_components/CustomDropdown'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-export default function Accelerate() {
+export default function Accelerate({ slug }: { slug?: string }) {
   const {
     heading,
     description,
@@ -19,7 +19,7 @@ export default function Accelerate() {
     formSubtitle,
     formFields,
     cta,
-  } = useAccelerate()
+  } = useAccelerate(slug)
 const router = useRouter()
 
   const [formData, setFormData] = useState<Record<string, string>>({})
@@ -71,7 +71,7 @@ const payload = {
                 </span>
               )
             }
-            if (['Expert', 'Performance', 'Marketing'].includes(word)) {
+            if (['Expert', 'Performance','Digital', 'Marketing'].includes(word)) {
               return (
                 <span key={idx} className="text-[#FF9900] mx-1">
                   {word}

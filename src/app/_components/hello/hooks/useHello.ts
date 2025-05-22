@@ -1,10 +1,16 @@
 // hooks/useHello.ts
 
-const useHello = () => {
+const useHello = (slug?: string) => {
+  const isSaasPage = slug === 'saas-digital-marketing';
   return {
     name: 'Shitanshu Kumar',
-    title: 'A performance marketing strategist helping |SaaS brands scale with precision.',
-    description: `I help SaaS and digital-first businesses unlock growth through data-driven performance marketing. With a strategy-first approach and deep campaign analytics, I've helped companies | across the globe improve ROI, reduce CAC, and scale faster — all while aligning with their unique | goals.`,
+    title: isSaasPage
+      ? "A Digital marketing strategist helping |SaaS brands scale with precision."
+      : "A performance marketing strategist helping |SaaS brands scale with precision.",
+    description: isSaasPage
+      ? "I help SaaS and digital-first businesses unlock growth through data-driven Digital marketing. |With a strategy-first approach and deep campaign analytics, I've helped companies across | the globe improve ROI, reduce CAC, and scale faster — all while aligning with their unique | goals."
+      : "I help SaaS and digital-first businesses unlock growth through data-driven performance marketing. With a strategy-first approach and deep campaign analytics, I've helped companies | across the globe improve ROI, reduce CAC, and scale faster — all while aligning with their unique | goals.",
+
     stats: [
       { value: '6+', label: 'Years of Experience' },
       { value: '$10M+', label: 'Ad Spend Managed' },

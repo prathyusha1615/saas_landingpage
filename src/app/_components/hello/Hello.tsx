@@ -4,8 +4,8 @@ import useHello from './hooks/useHello'
 import Image from 'next/image'
 import linked from '../../../../public/assets/Icons/LinkedinButton.svg'
 import link from '../../../../public/assets/Icons//LinkedIn_2.svg'
-export default function Hello() {
-  const { name, title, description, stats, profileImage, linkedin } = useHello()
+export default function Hello({ slug }: { slug?: string }) {
+  const { name, title, description, stats, profileImage, linkedin } = useHello(slug)
 
   return (
     <section className="bg-[#0D1321] text-white px-6 py-16 md:p-[120px] lg:py-[120px] lg:px-0 xl:p-[120px] justify-center items-center flex">

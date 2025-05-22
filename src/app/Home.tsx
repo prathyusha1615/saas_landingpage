@@ -21,17 +21,17 @@ export default function DynamicPage({ slug  }: HomeProps) {
 
   return (
     <>
-      <Accelerate />
+      <Accelerate slug={slug}/>
       <Performance />
-      <Services slug={slug} /> {/* Pass slug here */}
-      <Proven />
+      <Services  /> {/* Pass slug here */}
+      <Proven slug={slug} />
       <Saas />
-      <Hello />
+      <Hello  slug={slug} />
       <Tools />
       <Founders />
       <Growth />
       <LetsWork />
-      <Faqs slug={slug} />
+      <Faqs />
     </>
   )
 }

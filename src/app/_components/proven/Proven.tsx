@@ -3,8 +3,8 @@
 import { FaArrowRightLong } from 'react-icons/fa6'
 import useProven from './hooks/useProven'
 
-export default function Proven() {
-  const { heading, subheading, case: caseStudy } = useProven()
+export default function Proven({ slug }: { slug?: string }) {
+  const { heading, subheading, case: caseStudy } = useProven(slug)
 
   return (
     <section className="bg-[#000000] text-white px-4 py-16 md:px-24 lg:px-20">

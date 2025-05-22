@@ -1,10 +1,13 @@
 // hooks/useProven.ts
 
-const useProven = () => {
+const useProven = (slug?: string) => {
+    const isSaasPage = slug === 'saas-digital-marketing';
+
   return {
     heading: 'Proven Results',
-    subheading:
-      'Discover the transformative impact of tailored performance marketing strategies through our case studies. Each snapshot below offers a glimpse into the challenges faced, solutions implemented, and outstanding results achieved.',
+        subheading: isSaasPage
+      ? "Discover the transformative impact of tailored Digital marketing strategies through our case studies. Each snapshot below offers a glimpse into the challenges faced, solutions implemented, and outstanding results achieved."
+      : "Discover the transformative impact of tailored performance marketing strategies through our case studies. Each snapshot below offers a glimpse into the challenges faced, solutions implemented, and outstanding results achieved.",
     case: {
       title: 'Strategic Turnaround at Outplay',
       description:

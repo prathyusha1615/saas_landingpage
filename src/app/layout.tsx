@@ -1,7 +1,6 @@
 import { Header } from '@/_components'
 import './globals.css'
 import Footer from '@/_components/footer/Footer'
-import Script from 'next/script'
 
 export default function RootLayout({
   children,
@@ -11,15 +10,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Tag Manager */}
-        <Script id="gtm-script" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-M2HQ4L2K');`}
-        </Script>
-        {/* End Google Tag Manager */}
         {/* Preconnect for Google Fonts */}
           {/* Favicon */}
         <link rel="icon" href="/svgfavicon.svg" type="image/x-icon" />
@@ -29,7 +19,19 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
           rel="stylesheet"
         />
-
+        {/* Google Tag Manager */}
+        <script
+          id="gtm-script"
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MTWQZBK');
+          `,
+          }}
+        />
       </head>
       <body>
         <div className="flex flex-col flex-1 relative">
@@ -37,11 +39,15 @@ export default function RootLayout({
           <div className="flex-1">{children}</div>
           <Footer/>
         </div>
-                {/* Google Tag Manager (noscript) */}
-
-          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2HQ4L2K"
-          height="0" width="0" style={{display: "none", visibility: "hidden"}}></iframe></noscript>
-
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-M2HQ4L2K"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
       </body>
     </html>
   )

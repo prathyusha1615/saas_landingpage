@@ -70,3 +70,9 @@ body {
 }
 
 
+/*I only add the css to see the hubspot on the screen*/
+#hubspot-messages-iframe-container,
+iframe[src*="hubspot.com"] {
+  display: none !important;
+  visibility: hidden !important;
+}

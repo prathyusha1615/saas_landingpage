@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import useGrowth from './hooks/useGrowth'
 import growthImg from '../../../../public/assets/Images/Growth.svg'
+import Image from 'next/image'
 
 /* Sticky offsets */
 const TOPS_DESKTOP = [
@@ -33,11 +34,12 @@ function useStickyScale() {
     if (!ref.current) return
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setStuck(entry.intersectionRatio < 1)
-      },
-      { threshold: [1] }
-    )
+  ([entry]) => {
+    setStuck(!entry.isIntersecting)
+  },
+  { threshold: 1, rootMargin: '-1px 0px 0px 0px' }
+)
+
 
     observer.observe(ref.current)
     return () => observer.disconnect()
@@ -46,6 +48,14 @@ function useStickyScale() {
   return { ref, stuck }
 }
 
+type GrowthStep = {
+  stepLabel: string
+  title: string
+  subtitle: string
+  description: string
+}
+
+
 /* 🔹 Card Component (hook lives here – SAFE) */
 function GrowthCard({
   step,
@@ -53,11 +63,12 @@ function GrowthCard({
   topMobile,
   z,
 }: {
-  step: any
+  step: GrowthStep
   topDesktop: string
   topMobile: string
   z: number
-}) {
+})
+ {
   const { ref, stuck } = useStickyScale()
 
   return (
@@ -86,11 +97,11 @@ function GrowthCard({
           borderRadius: '36px',
           border: '0.5px solid transparent',
           background:
-            'linear-gradient(270deg, rgba(15, 23, 42, 0.40) 100%)',
+  'linear-gradient(270deg, rgba(15, 23, 42, 0.40) 0%, rgba(15, 23, 42, 0.40) 100%)',
           backdropFilter: 'blur(66px)',
           WebkitBackdropFilter: 'blur(66px)',
           boxShadow:
-            '0px 20px 40px rgba(15, 23, 42, 0.40) 100%',
+  '0px 20px 40px rgba(15, 23, 42, 0.40)',
         }}
       >
         {/* LEFT COLUMN */}
@@ -146,13 +157,15 @@ export default function Growth() {
     <section className="bg-[#02050E] px-6 md:px-[120px] py-20">
       {/* HEADER */}
       <div className="max-w-[900px] mx-auto text-center mb-20">
-        <div className="mx-auto mb-8" style={{ width: '140px', height: '140px' }}>
-          <img
-            src={growthImg.src}
-            alt="Growth"
-            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-          />
-        </div>
+     <div className="mx-auto mb-8 relative w-[140px] h-[140px]">
+  <Image
+    src={growthImg}
+    alt="Growth"
+    fill
+    className="object-contain"
+  />
+</div>
+
 
         <h2
           className="text-white"

@@ -83,27 +83,36 @@ function GrowthCard({
   ].join(' ')}
   style={{ zIndex: z }}
 >
+<div
+  ref={ref}
+  className="flex gap-8 transition-transform duration-300 ease-out"
+  style={{
+    transform: stuck ? 'scaleY(0.96)' : 'scaleY(1)',
+    transformOrigin: 'top',
 
-      <div
-        ref={ref}
-        className="flex gap-8 transition-transform duration-300 ease-out"
-        style={{
-          transform: stuck ? 'scaleY(0.96)' : 'scaleY(1)',
-          transformOrigin: 'top',
+    width: '1000px',
+    padding: '20px 24px',
+    alignItems: 'flex-start',
+    borderRadius: '36px',
 
-          width: '1000px',
-          padding: '20px 24px',
-          alignItems: 'flex-start',
-          borderRadius: '36px',
-          border: '0.5px solid transparent',
-          background:
-  'linear-gradient(270deg, rgba(15, 23, 42, 0.40) 0%, rgba(15, 23, 42, 0.40) 100%)',
-          backdropFilter: 'blur(66px)',
-          WebkitBackdropFilter: 'blur(66px)',
-          boxShadow:
-  '0px 20px 40px rgba(15, 23, 42, 0.40)',
-        }}
-      >
+    overflow: 'hidden', // ✅ THIS FIXES THE ISSUE
+
+    border: '0.5px solid rgba(255, 255, 255, 0.50)',
+    background:
+      'linear-gradient(270deg, rgba(15, 23, 42, 0.40) 0%, rgba(15, 23, 42, 0.40) 100%)',
+    backdropFilter: 'blur(66px)',
+    WebkitBackdropFilter: 'blur(66px)',
+    boxShadow:
+      '0px 20px 40px rgba(15, 23, 42, 0.40)',
+  }}
+>
+ <div
+    className="absolute inset-0 z-[-100]"
+    style={{
+      background:
+        'linear-gradient(270deg, rgba(15, 23, 42, 0.0) 0%, rgba(15, 23, 42, 0.40) 100%)',
+    }}
+  />
         {/* LEFT COLUMN */}
         <div className="w-[380px] shrink-0">
           <div className="flex items-center gap-3 mb-2">

@@ -1,62 +1,197 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import useGrowth from './hooks/useGrowth'
-import Image from 'next/image'
 import growthImg from '../../../../public/assets/Images/Growth.svg'
+
+/* Sticky offsets */
+const TOPS_DESKTOP = [
+  'top-[260px]',
+  'top-[300px]',
+  'top-[340px]',
+  'top-[380px]',
+  'top-[420px]',
+]
+
+const TOPS_MOBILE = [
+  'top-[200px]',
+  'top-[230px]',
+  'top-[260px]',
+  'top-[290px]',
+  'top-[320px]',
+]
+
+const OVERLAP_DESKTOP = 'md:mt-8'
+const OVERLAP_MOBILE = 'mt-6'
+
+/* 🔹 Hook: shrink card when it becomes sticky */
+function useStickyScale() {
+  const ref = useRef<HTMLDivElement | null>(null)
+  const [stuck, setStuck] = useState(false)
+
+  useEffect(() => {
+    if (!ref.current) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setStuck(entry.intersectionRatio < 1)
+      },
+      { threshold: [1] }
+    )
+
+    observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return { ref, stuck }
+}
+
+/* 🔹 Card Component (hook lives here – SAFE) */
+function GrowthCard({
+  step,
+  topDesktop,
+  topMobile,
+  z,
+}: {
+  step: any
+  topDesktop: string
+  topMobile: string
+  z: number
+}) {
+  const { ref, stuck } = useStickyScale()
+
+  return (
+   <div
+  className={[
+    'sticky',
+    'flex justify-center', // ✅ centers the card
+    topMobile,
+    `md:${topDesktop}`,
+    OVERLAP_MOBILE,
+    OVERLAP_DESKTOP,
+  ].join(' ')}
+  style={{ zIndex: z }}
+>
+
+      <div
+        ref={ref}
+        className="flex gap-8 transition-transform duration-300 ease-out"
+        style={{
+          transform: stuck ? 'scaleY(0.96)' : 'scaleY(1)',
+          transformOrigin: 'top',
+
+          width: '1000px',
+          padding: '20px 24px',
+          alignItems: 'flex-start',
+          borderRadius: '36px',
+          border: '0.5px solid transparent',
+          background:
+            'linear-gradient(270deg, rgba(15, 23, 42, 0.40) 100%)',
+          backdropFilter: 'blur(66px)',
+          WebkitBackdropFilter: 'blur(66px)',
+          boxShadow:
+            '0px 20px 40px rgba(15, 23, 42, 0.40) 100%',
+        }}
+      >
+        {/* LEFT COLUMN */}
+        <div className="w-[380px] shrink-0">
+          <div className="flex items-center gap-3 mb-2">
+            {/* STEP PILL */}
+            <div
+              className="flex text-[10px] font-medium"
+              style={{
+                height: '24px',
+                padding: '4px 8px',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '6px',
+                borderRadius: '121px',
+                border: '0.5px solid #FF9900',
+                background: 'rgba(255, 153, 0, 0.08)',
+                color: '#FF9900',
+                lineHeight: '1',
+                width: 'fit-content',
+              }}
+            >
+              <span className="w-[6px] h-[6px] rounded-full bg-[#FF9900]" />
+              {step.stepLabel}
+            </div>
+
+            {/* TITLE */}
+            <h3 className="text-white text-[25px] font-semibold leading-[33px]">
+              {step.title}
+            </h3>
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN */}
+        <div className="w-[560px] flex flex-col">
+          <p className="text-white text-[16px] leading-[20px] mb-2 opacity-90">
+            {step.subtitle}
+          </p>
+
+          <p className="text-[#94A3B8] text-[13px] leading-[20px]">
+            {step.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Growth() {
   const { GROWTH_STEPS } = useGrowth()
 
   return (
-    <div className="bg-[#02050E] px-6 md:px-[120px] py-20 flex gap-16">
-      {/* LEFT COLUMN */}
-      <div className="flex-1 flex flex-col w-[50%] ">
-        {/* Sticky Title + Subheading */}
-        <div className="sticky top-0 z-10 bg-[#02050E] py-28">
-          <h2 className="text-white text-4xl md:text-5xl lg:text-6xl  font-bold leading-snug mb-4">
-            The Growth Execution <br /> Framework
-          </h2>
-          <p className="text-[#94A3B8] text-base">
-            A clear, structured process focused on what drives results.
-          </p>
+    <section className="bg-[#02050E] px-6 md:px-[120px] py-20">
+      {/* HEADER */}
+      <div className="max-w-[900px] mx-auto text-center mb-20">
+        <div className="mx-auto mb-8" style={{ width: '140px', height: '140px' }}>
+          <img
+            src={growthImg.src}
+            alt="Growth"
+            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+          />
         </div>
 
-        {/* Steps scroll normally with page */}
-        <div className="flex flex-col space-y-12 pt-16 pb-32">
-          {GROWTH_STEPS.map((step, index) => (
-            <div
-              key={`growth-step-${index}`}
-              className="flex flex-col items-start gap-2 bg-[#01050E] rounded-2xl px-4 pt-[328px] pb-4"
-            >
-              <div className="bg-black flex justify-center items-center gap-2 text-[#FF9900] border-[0.5px] border-[#FF9900] text-sm font-medium w-fit px-3 py-1 rounded-full tracking-[0.15rem]">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
-                    <circle cx="4" cy="4" r="4" fill="#FF9900"/>
-                  </svg>
-                </span>{step.stepLabel}
-              </div>
-              <div className="text-white text-[25px] font-[600] leading-[33px] md:leading-[37px] md:tracking-[-0.5px] font-[Plus Jakarta Sans]">
-                {step.title}
-              </div>
-              <div className="text-white font-[400] text-[13px] leading-[20px] md:leading-[21.034px] font-[Plus Jakarta Sans]">
-                {step.subtitle}
-              </div>
-              <p className="text-[#94A3B8] text-[13px] font-[400] leading-[20px] md:leading-[21.034px] font-[Plus Jakarta Sans]">
-                {step.description}
-              </p>
-            </div>
-          ))}
-        </div>
+        <h2
+          className="text-white"
+          style={{
+            fontFamily: 'Plus Jakarta Sans',
+            fontSize: '49px',
+            fontWeight: 600,
+            lineHeight: '61px',
+          }}
+        >
+          The Growth Execution Framework
+        </h2>
+
+        <p
+          className="mt-4"
+          style={{
+            fontFamily: 'Plus Jakarta Sans',
+            fontSize: '16px',
+            fontWeight: 400,
+            lineHeight: '28px',
+            color: '#94A3B8',
+          }}
+        >
+          A clear, structured process focused on what drives results.
+        </p>
       </div>
 
-      {/* RIGHT COLUMN: Sticky Image */}
-      <div className="w-[45%] h-fit sticky top-24 hidden lg:block">
-        <Image
-          src={growthImg}
-          alt="Growth Visual"
-          className="w-full h-auto object-contain"
-        />
+      {/* STACK */}
+      <div className="relative mx-auto md:pb-[40vh]" style={{ maxWidth: '846px' }}>
+        {GROWTH_STEPS.map((step, i) => (
+          <GrowthCard
+            key={step.stepLabel}
+            step={step}
+            topDesktop={TOPS_DESKTOP[i] ?? 'top-[260px]'}
+            topMobile={TOPS_MOBILE[i] ?? 'top-[200px]'}
+            z={20 + i}
+          />
+        ))}
       </div>
-    </div>
+    </section>
   )
 }

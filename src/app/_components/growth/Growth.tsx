@@ -102,8 +102,6 @@ function GrowthCard({
       'linear-gradient(270deg, rgba(15, 23, 42, 0.40) 0%, rgba(15, 23, 42, 0.40) 100%)',
     backdropFilter: 'blur(66px)',
     WebkitBackdropFilter: 'blur(66px)',
-    boxShadow:
-      '0px 20px 40px rgba(15, 23, 42, 0.40)',
   }}
 >
  <div

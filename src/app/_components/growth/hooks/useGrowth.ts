@@ -1,4 +1,4 @@
-const GROWTH_STEPS = [
+export const GROWTH_STEPS = [
   {
     stepLabel: 'Step 1',
     title: 'Discovery',
@@ -23,7 +23,7 @@ const GROWTH_STEPS = [
   {
     stepLabel: 'Step 4',
     title: 'Optimization & Iteration',
-    subtitle: "CRO isn't one-and-done — it's built on continuous testing.",
+    subtitle: "CRO is continuous, not one-time.",
     description:
       'I constantly analyze performance data to identify what’s working and what’s wasting spend. Through A/B testing, bid adjustments, creative rotation, and funnel tuning, I iterate rapidly to improve efficiency, scale winning elements, and turn decent performance into breakthrough ROI.',
   },

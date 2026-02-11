@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/b2b-digital-marketing-agency",
+      "destination": "https://b2b-digital-marketing-agency.vercel.app"
+    }
+  ]
+}

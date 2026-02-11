@@ -34,11 +34,11 @@ function useStickyScale() {
     if (!ref.current) return
 
     const observer = new IntersectionObserver(
-  ([entry]) => {
-    setStuck(!entry.isIntersecting)
-  },
-  { threshold: 1, rootMargin: '-1px 0px 0px 0px' }
-)
+      ([entry]) => {
+        setStuck(!entry.isIntersecting)
+      },
+      { threshold: 1, rootMargin: '-1px 0px 0px 0px' }
+    )
 
 
     observer.observe(ref.current)
@@ -67,50 +67,49 @@ function GrowthCard({
   topDesktop: string
   topMobile: string
   z: number
-})
- {
+}) {
   const { ref, stuck } = useStickyScale()
 
   return (
-   <div
-  className={[
-    'sticky',
-    'flex justify-center', // ✅ centers the card
-    topMobile,
-    `md:${topDesktop}`,
-    OVERLAP_MOBILE,
-    OVERLAP_DESKTOP,
-  ].join(' ')}
-  style={{ zIndex: z }}
->
-<div
-  ref={ref}
-  className="flex gap-8 transition-transform duration-300 ease-out"
-  style={{
-    transform: stuck ? 'scaleY(0.96)' : 'scaleY(1)',
-    transformOrigin: 'top',
+    <div
+      className={[
+        'sticky',
+        'flex justify-center', // ✅ centers the card
+        topMobile,
+        `md:${topDesktop}`,
+        OVERLAP_MOBILE,
+        OVERLAP_DESKTOP,
+      ].join(' ')}
+      style={{ zIndex: z }}
+    >
+      <div
+        ref={ref}
+        className="flex gap-8 transition-transform duration-300 ease-out"
+        style={{
+          transform: stuck ? 'scaleY(0.96)' : 'scaleY(1)',
+          transformOrigin: 'top',
 
-    width: '1000px',
-    padding: '20px 24px',
-    alignItems: 'flex-start',
-    borderRadius: '36px',
+          width: '1000px',
+          padding: '20px 24px',
+          alignItems: 'flex-start',
+          borderRadius: '36px',
 
-    overflow: 'hidden', // ✅ THIS FIXES THE ISSUE
+          overflow: 'hidden', // ✅ THIS FIXES THE ISSUE
 
-    border: '0.5px solid rgba(255, 255, 255, 0.50)',
-    background:
-      'linear-gradient(270deg, rgba(15, 23, 42, 0.40) 0%, rgba(15, 23, 42, 0.40) 100%)',
-    backdropFilter: 'blur(66px)',
-    WebkitBackdropFilter: 'blur(66px)',
-  }}
->
- <div
-    className="absolute inset-0 z-[-100]"
-    style={{
-      background:
-        'linear-gradient(270deg, rgba(15, 23, 42, 0.0) 0%, rgba(15, 23, 42, 0.40) 100%)',
-    }}
-  />
+          border: '0.5px solid rgba(255, 255, 255, 0.50)',
+          background:
+            'linear-gradient(270deg, rgba(15, 23, 42, 0.40) 0%, rgba(15, 23, 42, 0.40) 100%)',
+          backdropFilter: 'blur(66px)',
+          WebkitBackdropFilter: 'blur(66px)',
+        }}
+      >
+        <div
+          className="absolute inset-0 z-[-100]"
+          style={{
+            background:
+              'linear-gradient(270deg, rgba(15, 23, 42, 0.0) 0%, rgba(15, 23, 42, 0.40) 100%)',
+          }}
+        />
         {/* LEFT COLUMN */}
         <div className="w-[380px] shrink-0">
           <div className="flex items-center gap-3 mb-2">
@@ -164,14 +163,14 @@ export default function Growth() {
     <section className="bg-[#02050E] px-6 md:px-[120px] py-20">
       {/* HEADER */}
       <div className="max-w-[900px] mx-auto text-center mb-20">
-     <div className="mx-auto mb-8 relative w-[140px] h-[140px]">
-  <Image
-    src={growthImg}
-    alt="Growth"
-    fill
-    className="object-contain"
-  />
-</div>
+        <div className="mx-auto mb-8 relative w-[140px] h-[140px]">
+          <Image
+            src={growthImg}
+            alt="Growth"
+            fill
+            className="object-contain"
+          />
+        </div>
 
 
         <h2

@@ -2,7 +2,11 @@
   "rewrites": [
     {
       "source": "/b2b-digital-marketing-agency",
-      "destination": "https://b2b-digital-marketing-agency.vercel.app"
+      "destination": "https://b2b-digital-marketing-agency.vercel.app/b2b-digital-marketing-agency"
+    },
+    {
+      "source": "/b2b-digital-marketing-agency/:path*",
+      "destination": "https://b2b-digital-marketing-agency.vercel.app/b2b-digital-marketing-agency/:path*"
     }
   ]
 }

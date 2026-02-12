@@ -7,6 +7,49 @@
     {
       "source": "/b2b-digital-marketing-agency/:path*",
       "destination": "https://b2b-digital-marketing-agency.vercel.app/b2b-digital-marketing-agency/:path*"
+    },
+
+    {
+      "source": "/b2b-seo-agency",
+      "destination": "https://b2b-seo-agency.vercel.app/b2b-seo-agency"
+    },
+    {
+      "source": "/b2b-seo-agency/:path*",
+      "destination": "https://b2b-seo-agency.vercel.app/b2b-seo-agency/:path*"
+    },
+    {
+      "source": "/b2b-ppc-agency",
+      "destination": "https://b2-b-ppc-agency.vercel.app/b2b-ppc-agency"
+    },
+    {
+      "source": "/b2b-ppc-agency/:path*",
+      "destination": "https://b2-b-ppc-agency.vercel.app/b2b-ppc-agency/:path*"
+    },
+    {
+      "source": "/b2b-lead-generation-company",
+      "destination": "https://b2b-lead-generation-v1-nng8.vercel.app/b2b-lead-generation-company"
+    },
+    {
+      "source": "/b2b-lead-generation-company/:path*",
+      "destination": "https://b2b-lead-generation-v1-nng8.vercel.app/b2b-lead-generation-company/:path*"
+    },
+    {
+      "source": "/b2b-marketing-agency",
+      "destination": "https://b2b-marketing-agency.vercel.app/b2b-marketing-agency"
+    },
+    {
+      "source": "/b2b-marketing-agency/:path*",
+      "destination": "https://b2b-marketing-agency.vercel.app/b2b-marketing-agency/:path*"
+    },
+
+    {
+      "source": "/b2b-performance-marketing-agency",
+      "destination": "https://b2-b-pma.vercel.app/b2b-performance-marketing-agency"
+    },
+    {
+      "source": "/b2b-performance-marketing-agency/:path*",
+      "destination": "https://b2-b-pma.vercel.app/b2b-performance-marketing-agency/:path*"
     }
+
   ]
 }

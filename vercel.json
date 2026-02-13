@@ -11,11 +11,11 @@
 
     {
       "source": "/b2b-seo-agency",
-      "destination": "https://b2b-seo-agency.vercel.app/b2b-seo-agency"
+      "destination": "https://b2-b-seo-agency.vercel.app/b2b-seo-agency"
     },
     {
       "source": "/b2b-seo-agency/:path*",
-      "destination": "https://b2b-seo-agency.vercel.app/b2b-seo-agency/:path*"
+      "destination": "https://b2-b-seo-agency.vercel.app/b2b-seo-agency/:path*"
     },
     {
       "source": "/b2b-ppc-agency",

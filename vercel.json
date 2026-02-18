@@ -49,6 +49,14 @@
     {
       "source": "/b2b-performance-marketing-agency/:path*",
       "destination": "https://b2-b-pma.vercel.app/b2b-performance-marketing-agency/:path*"
+    },
+    {
+      "source": "/digital-marketing-agency",
+      "destination": "https://digital-marketing-business.vercel.app/digital-marketing-agency"
+    },
+    {
+      "source": "/digital-marketing-agency/:path*",
+      "destination": "https://digital-marketing-business.vercel.app/digital-marketing-agency/:path*"
     }
 
   ]

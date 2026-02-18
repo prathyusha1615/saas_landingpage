@@ -40,7 +40,6 @@ function useStickyScale() {
       { threshold: 1, rootMargin: '-1px 0px 0px 0px' }
     )
 
-
     observer.observe(ref.current)
     return () => observer.disconnect()
   }, [])
@@ -55,8 +54,7 @@ type GrowthStep = {
   description: string
 }
 
-
-/* 🔹 Card Component (hook lives here – SAFE) */
+/* 🔹 Card Component */
 function GrowthCard({
   step,
   topDesktop,
@@ -74,7 +72,7 @@ function GrowthCard({
     <div
       className={[
         'sticky',
-        'flex justify-center', // ✅ centers the card
+        'flex justify-center',
         topMobile,
         `md:${topDesktop}`,
         OVERLAP_MOBILE,
@@ -84,17 +82,18 @@ function GrowthCard({
     >
       <div
         ref={ref}
-        className="flex gap-8 transition-transform duration-300 ease-out"
+        className="flex flex-col md:flex-row gap-6 md:gap-8 transition-transform duration-300 ease-out p-4 md:p-[20px_24px]"
         style={{
           transform: stuck ? 'scaleY(0.96)' : 'scaleY(1)',
           transformOrigin: 'top',
 
-          width: '1000px',
-          padding: '20px 24px',
+          width: '100%',
+          maxWidth: '1000px',
+          boxSizing: 'border-box',
+
           alignItems: 'flex-start',
           borderRadius: '36px',
-
-          overflow: 'hidden', // ✅ THIS FIXES THE ISSUE
+          overflow: 'hidden',
 
           border: '0.5px solid rgba(255, 255, 255, 0.50)',
           background:
@@ -110,8 +109,9 @@ function GrowthCard({
               'linear-gradient(270deg, rgba(15, 23, 42, 0.0) 0%, rgba(15, 23, 42, 0.40) 100%)',
           }}
         />
+
         {/* LEFT COLUMN */}
-        <div className="w-[380px] shrink-0">
+        <div className="w-full md:w-[380px] shrink-0">
           <div className="flex items-center gap-3 mb-2">
             {/* STEP PILL */}
             <div
@@ -135,15 +135,15 @@ function GrowthCard({
             </div>
 
             {/* TITLE */}
-            <h3 className="text-white text-[25px] font-semibold leading-[33px]">
+            <h3 className="text-white text-[22px] md:text-[25px] font-semibold leading-[30px] md:leading-[33px]">
               {step.title}
             </h3>
           </div>
         </div>
 
         {/* RIGHT COLUMN */}
-        <div className="w-[560px] flex flex-col">
-          <p className="text-white text-[16px] leading-[20px] mb-2 opacity-90">
+        <div className="w-full md:w-[560px] flex flex-col">
+          <p className="text-white text-[14px] md:text-[16px] leading-[20px] mb-2 opacity-90">
             {step.subtitle}
           </p>
 
@@ -160,38 +160,28 @@ export default function Growth() {
   const { GROWTH_STEPS } = useGrowth()
 
   return (
-    <section className="bg-[#02050E] px-6 md:px-[120px] py-20">
+    <section className="bg-[#02050E] px-4 sm:px-6 md:px-12 lg:px-[120px] py-16 md:py-20">
       {/* HEADER */}
-      <div className="max-w-[900px] mx-auto text-center mb-20">
-        <div className="mx-auto mb-8 relative w-[140px] h-[140px]">
-          <Image
-            src={growthImg}
-            alt="Growth"
-            fill
-            className="object-contain"
-          />
+      <div className="max-w-[900px] mx-auto text-center mb-16 md:mb-20">
+        <div className="mx-auto mb-6 md:mb-8 relative w-[100px] h-[100px] md:w-[140px] md:h-[140px]">
+          <Image src={growthImg} alt="Growth" fill className="object-contain" />
         </div>
 
-
         <h2
-          className="text-white"
+          className="text-white text-[32px] md:text-[40px] lg:text-[49px] leading-[40px] md:leading-[52px] lg:leading-[61px]"
           style={{
             fontFamily: 'Plus Jakarta Sans',
-            fontSize: '49px',
             fontWeight: 600,
-            lineHeight: '61px',
           }}
         >
           The Growth Execution Framework
         </h2>
 
         <p
-          className="mt-4"
+          className="mt-4 text-[14px] md:text-[16px] leading-[24px] md:leading-[28px]"
           style={{
             fontFamily: 'Plus Jakarta Sans',
-            fontSize: '16px',
             fontWeight: 400,
-            lineHeight: '28px',
             color: '#94A3B8',
           }}
         >
@@ -200,7 +190,7 @@ export default function Growth() {
       </div>
 
       {/* STACK */}
-      <div className="relative mx-auto md:pb-[40vh]" style={{ maxWidth: '846px' }}>
+      <div className="relative mx-auto md:pb-[40vh] max-w-full md:max-w-[846px]">
         {GROWTH_STEPS.map((step, i) => (
           <GrowthCard
             key={step.stepLabel}

@@ -55,8 +55,8 @@
       "destination": "https://digital-marketing-business.vercel.app/digital-marketing-agency"
     },
     {
-      "source": "/performance-marketing-agency/:path*",
-      "destination": "https://digital-marketing-business.vercel.app/performance-marketing-agency/:path*"
+      "source": "/digital-marketing-agency/:path*",
+      "destination": "https://digital-marketing-business.vercel.app/digital-marketing-agency/:path*"
     },
      {
       "source": "/performance-marketing-agency",

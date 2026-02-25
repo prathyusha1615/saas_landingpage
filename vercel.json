@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/b2b-digital-marketing-agency",
-      "destination": "https://b2b-digital-marketing-agency.vercel.app/b2b-digital-marketing-agency"
+      "destination": "https://b2b-digital-marketing-agency-rosy.vercel.app/b2b-digital-marketing-agency"
     },
     {
       "source": "/b2b-digital-marketing-agency/:path*",
-      "destination": "https://b2b-digital-marketing-agency.vercel.app/b2b-digital-marketing-agency/:path*"
+      "destination": "https://b2b-digital-marketing-agency-rosy.vercel.app/b2b-digital-marketing-agency/:path*"
     },
 
     {
@@ -52,19 +52,19 @@
     },
     {
       "source": "/digital-marketing-agency",
-      "destination": "https://digital-marketing-business.vercel.app/digital-marketing-agency"
+      "destination": "https://digital-marketing-business-lake.vercel.app/digital-marketing-agency"
     },
     {
       "source": "/digital-marketing-agency/:path*",
-      "destination": "https://digital-marketing-business.vercel.app/digital-marketing-agency/:path*"
+      "destination": "https://digital-marketing-business-lake.vercel.app/digital-marketing-agency/:path*"
     },
      {
       "source": "/performance-marketing-agency",
-      "destination": "https://performance-marketing-murex.vercel.app/performance-marketing-agency"
+      "destination": "https://performance-marketing-jade.vercel.app/performance-marketing-agency"
     },
     {
       "source": "/performance-marketing-agency/:path*",
-      "destination": "https://performance-marketing-murex.vercel.app/performance-marketing-agency/:path*"
+      "destination": "https://performance-marketing-jade.vercel.app/performance-marketing-agency/:path*"
     }
 
   ]
